@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import userName from '../src/cli.js';
+import userNameQuestion from '../src/cli.js';
 
-userName();
+userNameQuestion();
