@@ -1,44 +1,44 @@
 #!/usr/bin/env node
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
-console.log("Welcome to the Brain Games!");
-const userName = readlineSync.question("May I have your name? ");
+console.log('Welcome to the Brain Games!');
+const userName = readlineSync.question('May I have your name? ');
 console.log(`Hello, ${userName}`);
-console.log("What is the result of the expression?");
+console.log('What is the result of the expression?');
 
-const operationsArray = ["+", "-", "*"];
+const operationsArray = ['+', '-', '*'];
 const minimumNumber = 1;
 const maximumNumber = 100;
 let randomFirstOperand = 0;
 let randomSecondOperand = 0;
-let randomOperator = "";
+let randomOperator = '';
 let mathematicalQuestion = 0;
-let mathematicalQuestionToString = "";
+let mathematicalQuestionToString = '';
 let testIsPassed = true;
 
 for (let i = 0; i < 3; i += 1) {
   randomFirstOperand = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   randomSecondOperand = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   randomOperator = operationsArray[Math.floor(Math.random() * (2 - 0) + 0)];
-  if (randomOperator === "+") {
+  if (randomOperator === '+') {
     mathematicalQuestion = randomFirstOperand + randomSecondOperand;
-  } else if (randomOperator === "-") {
+  } else if (randomOperator === '-') {
     mathematicalQuestion = randomFirstOperand - randomSecondOperand;
-  } else if (randomOperator === "*") {
+  } else if (randomOperator === '*') {
     mathematicalQuestion = randomFirstOperand * randomSecondOperand;
   }
   mathematicalQuestionToString = `${randomFirstOperand.toString()} ${randomOperator} ${randomSecondOperand.toString()}`;
   console.log(`Question: ${mathematicalQuestionToString}`);
-  const answerToQuestion = readlineSync.question("Your answer: ");
+  const answerToQuestion = readlineSync.question('Your answer: ');
   if (answerToQuestion === mathematicalQuestion.toString()) {
-    console.log("Correct!");
+    console.log('Correct!');
   } else {
     console.log(
-      `'${answerToQuestion}' is wrong answer. Correct answer was '${mathematicalQuestion}'.`
+      `'${answerToQuestion}' is wrong answer. Correct answer was '${mathematicalQuestion}'.`,
     );
     console.log(`Let's try again, ${userName}!`);
     testIsPassed = false;
