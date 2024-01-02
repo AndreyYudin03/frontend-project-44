@@ -30,7 +30,7 @@ for (let i = 0; i < 3; i += 1) {
     );
     testIsPassed = false;
     break;
-  } else if (correctAnswers.includes(answerToQuestion === false)) {
+  } else if (correctAnswers.includes(answerToQuestion) === false) {
     console.log(
       `'${answerToQuestion}' is wrong answer.\nLet's try again, ${userName}`
     );
