@@ -14,25 +14,25 @@ let testIsPassed = true;
 
 for (let i = 0; i < 3; i += 1) {
   const number = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
   );
   console.log(`Question: ${number}`);
   const answerToQuestion = readlineSync.question("Your answer: ");
   if (number % 2 === 0 && answerToQuestion === "no") {
     console.log(
-      `'no' is wrong answer. Correct answer was 'yes'.\nLet's try again, ${userName}`,
+      `'no' is wrong answer. Correct answer was 'yes'.\nLet's try again, ${userName}`
     );
     testIsPassed = false;
     break;
   } else if (number % 2 !== 0 && answerToQuestion === "yes") {
     console.log(
-      `'yes' is wrong answer. Correct answer was 'no'.\nLet's try again, ${userName}`,
+      `'yes' is wrong answer. Correct answer was 'no'.\nLet's try again, ${userName}`
     );
     testIsPassed = false;
     break;
   } else if (correctAnswers.includes(answerToQuestion === false)) {
     console.log(
-      `'${answerToQuestion}' is wrong answer.\nLet's try again, ${userName}`,
+      `'${answerToQuestion}' is wrong answer.\nLet's try again, ${userName}`
     );
     testIsPassed = false;
     break;
