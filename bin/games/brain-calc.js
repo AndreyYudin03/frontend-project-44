@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 import readlineSync from "readline-sync";
+import welcomeUser from "../../src/index.js";
 
-console.log("Welcome to the Brain Games!");
-const userName = readlineSync.question("May I have your name? ");
-console.log(`Hello, ${userName}`);
-console.log("What is the result of the expression?");
+const userName = welcomeUser();
 
 const operationsArray = ["+", "-", "*"];
 const minimumNumber = 1;
