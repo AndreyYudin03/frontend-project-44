@@ -13,9 +13,9 @@ function runGame(question, correctAnswerFn, userName) {
 
   for (let i = 0; i < attempts; i += 1) {
     const userAnswer = readlineSync.question(
-      `Question: ${question()}\nYour answer: `
+      `Question: ${question}\nYour answer: `
     );
-    const correctAnswer = correctAnswerFn();
+    const correctAnswer = correctAnswerFn;
 
     if (userAnswer === correctAnswer) {
       console.log("Correct!");
