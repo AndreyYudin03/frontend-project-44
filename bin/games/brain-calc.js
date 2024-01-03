@@ -1,49 +1,41 @@
 #!/usr/bin/env node
-import readlineSync from "readline-sync";
-import welcomeUser from "../../src/index.js";
+import { runGame, welcomeUser } from "../../src/index.js";
 
 const userName = welcomeUser();
 
-const operationsArray = ["+", "-", "*"];
-const minimumNumber = 1;
-const maximumNumber = 100;
-let randomFirstOperand = 0;
-let randomSecondOperand = 0;
-let randomOperator = "";
-let mathematicalQuestion = 0;
-let mathematicalQuestionToString = "";
-let testIsPassed = true;
-
-for (let i = 0; i < 3; i += 1) {
-  randomFirstOperand = Math.floor(
+const generateCalculationQuestion = () => {
+  const operationsArray = ["+", "-", "*"];
+  const minimumNumber = 1;
+  const maximumNumber = 100;
+  const randomFirstOperand = Math.floor(
     Math.random() * (maximumNumber - minimumNumber) + minimumNumber
   );
-  randomSecondOperand = Math.floor(
+  const randomSecondOperand = Math.floor(
     Math.random() * (maximumNumber - minimumNumber) + minimumNumber
   );
-  randomOperator = operationsArray[Math.floor(Math.random() * (2 - 0) + 0)];
-  if (randomOperator === "+") {
-    mathematicalQuestion = randomFirstOperand + randomSecondOperand;
-  } else if (randomOperator === "-") {
-    mathematicalQuestion = randomFirstOperand - randomSecondOperand;
-  } else if (randomOperator === "*") {
-    mathematicalQuestion = randomFirstOperand * randomSecondOperand;
-  }
-  mathematicalQuestionToString = `${randomFirstOperand.toString()} ${randomOperator} ${randomSecondOperand.toString()}`;
-  console.log(`Question: ${mathematicalQuestionToString}`);
-  const answerToQuestion = readlineSync.question("Your answer: ");
-  if (answerToQuestion === mathematicalQuestion.toString()) {
-    console.log("Correct!");
-  } else {
-    console.log(
-      `'${answerToQuestion}' is wrong answer. Correct answer was '${mathematicalQuestion}'.`
-    );
-    console.log(`Let's try again, ${userName}!`);
-    testIsPassed = false;
-    break;
-  }
-}
+  const randomOperator =
+    operationsArray[Math.floor(Math.random() * operationsArray.length)];
+  const mathematicalQuestionToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;
+  return mathematicalQuestionToString;
+};
 
-if (testIsPassed === true) {
-  console.log(`Congratulations, ${userName}`);
-}
+const calculationQuestionString = generateCalculationQuestion;
+
+const calculateResult = () => {
+  const CalculationQuestionStringToArray =
+    calculationQuestionString().split(" ");
+  const firstOperand = parseInt(CalculationQuestionStringToArray[0], 10);
+  const secondOperand = parseInt(CalculationQuestionStringToArray[2], 10);
+  const operator = CalculationQuestionStringToArray[1];
+  let result = 0;
+  if (operator === "+") {
+    result = firstOperand + secondOperand;
+  } else if (operator === "-") {
+    result = firstOperand - secondOperand;
+  } else if (operator === "*") {
+    result = firstOperand * secondOperand;
+  }
+  return result.toString();
+};
+
+runGame(calculationQuestionString, calculateResult, userName);
