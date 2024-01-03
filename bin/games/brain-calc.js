@@ -13,8 +13,7 @@ const generateCalculationQuestion = () => {
   const randomSecondOperand = Math.floor(
     Math.random() * (maximumNumber - minimumNumber) + minimumNumber
   );
-  const randomOperator =
-    operationsArray[Math.floor(Math.random() * operationsArray.length)];
+  const randomOperator = operationsArray[Math.floor(Math.random() * operationsArray.length)];
   const mathematicalQuestionToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;
   return mathematicalQuestionToString;
 };
