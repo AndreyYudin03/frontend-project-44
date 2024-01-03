@@ -19,14 +19,12 @@ const generateCalculationQuestion = () => {
   return mathematicalQuestionToString;
 };
 
-const calculationQuestionString = generateCalculationQuestion;
-
 const calculateResult = () => {
-  const CalculationQuestionStringToArray =
-    calculationQuestionString().split(" ");
-  const firstOperand = parseInt(CalculationQuestionStringToArray[0], 10);
-  const secondOperand = parseInt(CalculationQuestionStringToArray[2], 10);
-  const operator = CalculationQuestionStringToArray[1];
+  const calculationQuestionString = generateCalculationQuestion();
+  const calculationQuestionStringToArray = calculationQuestionString.split(" ");
+  const firstOperand = parseInt(calculationQuestionStringToArray[0], 10);
+  const secondOperand = parseInt(calculationQuestionStringToArray[2], 10);
+  const operator = calculationQuestionStringToArray[1];
   let result = 0;
   if (operator === "+") {
     result = firstOperand + secondOperand;
@@ -35,7 +33,7 @@ const calculateResult = () => {
   } else if (operator === "*") {
     result = firstOperand * secondOperand;
   }
-  return result.toString();
+  return [calculationQuestionString, result.toString()];
 };
 
-runGame(calculationQuestionString, calculateResult, userName);
+runGame(calculateResult, userName);

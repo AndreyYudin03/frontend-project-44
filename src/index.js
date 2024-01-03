@@ -7,14 +7,15 @@ function welcomeUser() {
   return userName;
 }
 
-function runGame(question, correctAnswerFn, userName) {
+function runGame(questionWithAnswer, userName) {
   let testIsPassed = true;
 
   for (let i = 0; i < 3; i += 1) {
+    const [question, answer] = questionWithAnswer();
     const userAnswer = readlineSync.question(
-      `Question: ${question()}\nYour answer: `
+      `Question: ${question}\nYour answer: `
     );
-    const correctAnswer = correctAnswerFn();
+    const correctAnswer = answer;
 
     if (userAnswer === correctAnswer) {
       console.log("Correct!");
