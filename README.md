@@ -5,6 +5,9 @@
 brain-games asciinema:
 https://asciinema.org/a/HkljiEjLWBqbliBW8LhDjzCUz
 
+brain-even asciinema:
+https://asciinema.org/a/ObHcyzrMawlYEjiR2qWKve4No
+
 brain-calc asciinema:
 https://asciinema.org/a/jKwCecSTDgS1Q2AJ8Xb2aJBfE
 
