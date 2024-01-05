@@ -3,6 +3,8 @@ import { runGame, welcomeUser } from "../../src/index.js";
 
 const userName = welcomeUser();
 
+console.log("What is the result of the expression?");
+
 const generateCalculationQuestion = () => {
   const operationsArray = ["+", "-", "*"];
   const minimumNumber = 1;
@@ -13,7 +15,8 @@ const generateCalculationQuestion = () => {
   const randomSecondOperand = Math.floor(
     Math.random() * (maximumNumber - minimumNumber) + minimumNumber
   );
-  const randomOperator = operationsArray[Math.floor(Math.random() * operationsArray.length)];
+  const randomOperator =
+    operationsArray[Math.floor(Math.random() * operationsArray.length)];
   const mathematicalQuestionToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;
   return mathematicalQuestionToString;
 };
