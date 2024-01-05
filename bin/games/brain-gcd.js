@@ -4,6 +4,8 @@ import { runGame, welcomeUser } from "../../src/index.js";
 
 const userName = welcomeUser();
 
+console.log("Find the greatest common divisor of given numbers.");
+
 function generateGcdQuestion() {
   const minimumNumber = 1;
   const maximumNumber = 100;
