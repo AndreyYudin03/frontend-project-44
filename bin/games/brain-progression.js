@@ -4,6 +4,8 @@ import { welcomeUser, runGame } from "../../src/index.js";
 
 const userName = welcomeUser();
 
+console.log("What number is missing in the progression?");
+
 function generateProgressionQuestionWithCorrectAnswer() {
   const minimumProgressionFirstNumber = 1;
   const maximumProgressionFirstNumber = 100;
