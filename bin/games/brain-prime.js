@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { welcomeUser, runGame } from "../../src/index.js";
 
 const userName = welcomeUser();
