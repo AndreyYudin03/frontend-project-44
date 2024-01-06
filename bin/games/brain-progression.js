@@ -10,13 +10,16 @@ function generateProgressionQuestionWithCorrectAnswer() {
   const minimumProgressionFirstNumber = 1;
   const maximumProgressionFirstNumber = 100;
   const randomFirstNumber = Math.floor(
-    Math.random() * (maximumProgressionFirstNumber - minimumProgressionFirstNumber) + minimumProgressionFirstNumber,
+    Math.random()
+      * (maximumProgressionFirstNumber - minimumProgressionFirstNumber)
+      + minimumProgressionFirstNumber,
   );
 
   const minimumProgressionLength = 5;
   const maximumProgressionLength = 10;
   const randomProgressionLength = Math.floor(
-    Math.random() * (maximumProgressionLength - minimumProgressionLength) + minimumProgressionLength,
+    Math.random() * (maximumProgressionLength - minimumProgressionLength)
+      + minimumProgressionLength,
   );
 
   const progressionArray = [];
