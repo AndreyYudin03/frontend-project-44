@@ -9,7 +9,7 @@ const generateEvenQuestion = () => {
   const minimumNumber = 1;
   const maximumNumber = 100;
   const number = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   return number;
 };

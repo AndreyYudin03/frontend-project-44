@@ -10,10 +10,10 @@ const generateCalculationQuestion = () => {
   const minimumNumber = 1;
   const maximumNumber = 100;
   const randomFirstOperand = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   const randomSecondOperand = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   const randomOperator = operationsArray[Math.floor(Math.random() * operationsArray.length)];
   const mathematicalQuestionToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;

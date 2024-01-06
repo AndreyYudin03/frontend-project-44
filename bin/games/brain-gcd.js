@@ -10,10 +10,10 @@ function generateGcdQuestion() {
   const minimumNumber = 1;
   const maximumNumber = 100;
   const randomFirstNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   const randomSecondNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   return `${randomFirstNumber} ${randomSecondNumber}`;
 }

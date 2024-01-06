@@ -13,7 +13,7 @@ function runGame(questionWithAnswer, userName) {
   for (let i = 0; i < 3; i += 1) {
     const [question, answer] = questionWithAnswer();
     const userAnswer = readlineSync.question(
-      `Question: ${question}\nYour answer: `
+      `Question: ${question}\nYour answer: `,
     );
     const correctAnswer = answer;
 
@@ -21,7 +21,7 @@ function runGame(questionWithAnswer, userName) {
       console.log('Correct!');
     } else {
       console.log(
-        `'${userAnswer}' is wrong answer. Correct answer was '${correctAnswer}'.`
+        `'${userAnswer}' is wrong answer. Correct answer was '${correctAnswer}'.`,
       );
       console.log(`Let's try again, ${userName}!`);
       testIsPassed = false;

@@ -10,7 +10,7 @@ function generatePrimeQuestion() {
   const minimumRandomNumber = 1;
   const maximumRandomNumber = 100;
   const randomNumber = Math.floor(
-    Math.random() * (maximumRandomNumber - minimumRandomNumber) + minimumRandomNumber
+    Math.random() * (maximumRandomNumber - minimumRandomNumber) + minimumRandomNumber,
   );
   return randomNumber;
 }

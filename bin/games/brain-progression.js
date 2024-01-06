@@ -10,13 +10,13 @@ function generateProgressionQuestionWithCorrectAnswer() {
   const minimumProgressionFirstNumber = 1;
   const maximumProgressionFirstNumber = 100;
   const randomFirstNumber = Math.floor(
-    Math.random() * (maximumProgressionFirstNumber - minimumProgressionFirstNumber) + minimumProgressionFirstNumber
+    Math.random() * (maximumProgressionFirstNumber - minimumProgressionFirstNumber) + minimumProgressionFirstNumber,
   );
 
   const minimumProgressionLength = 5;
   const maximumProgressionLength = 10;
   const randomProgressionLength = Math.floor(
-    Math.random() * (maximumProgressionLength - minimumProgressionLength) + minimumProgressionLength
+    Math.random() * (maximumProgressionLength - minimumProgressionLength) + minimumProgressionLength,
   );
 
   const progressionArray = [];
@@ -27,7 +27,7 @@ function generateProgressionQuestionWithCorrectAnswer() {
   for (let i = 0; i < 4; i += 1) {
     lastElementProgressionArray = progressionArray[progressionArray.length - 1];
     progressionArray.push(
-      lastElementProgressionArray + randomStepProgressionNumber
+      lastElementProgressionArray + randomStepProgressionNumber,
     );
   }
 
@@ -38,12 +38,12 @@ function generateProgressionQuestionWithCorrectAnswer() {
   ) {
     lastElementProgressionArray = progressionArray[progressionArray.length - 1];
     progressionArray.push(
-      lastElementProgressionArray + randomStepProgressionNumber
+      lastElementProgressionArray + randomStepProgressionNumber,
     );
   }
 
   const randomProgressionArrayIndex = Math.floor(
-    Math.random() * (progressionArray.length - 0) + 0
+    Math.random() * (progressionArray.length - 0) + 0,
   );
 
   const hiddenNumber = progressionArray[randomProgressionArrayIndex];
@@ -51,7 +51,7 @@ function generateProgressionQuestionWithCorrectAnswer() {
   progressionArray[randomProgressionArrayIndex] = '..';
   return [
     progressionArray.toString().replace(/,/g, ' '),
-    hiddenNumber.toString()
+    hiddenNumber.toString(),
   ];
 }
 

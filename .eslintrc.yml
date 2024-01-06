@@ -6,11 +6,10 @@ extends: "airbnb-base"
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-rules:
-  {
+rules: {
     no-console: "off",
     import/extensions: "off",
-    quotes: ["error", "single"],
-    comma-dangle: ["error", "never"],
-    operator-linebreak: ["error", "none"],
+    # quotes: ["error", "single"],
+    # comma-dangle: ["error", "never"],
+    # operator-linebreak: ["error", "none"],
   }
