@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
-import { welcomeUser, runGame } from "../../src/index.js";
+import { welcomeUser, runGame, } from '../../src/index.js';
 
 const userName = welcomeUser();
 
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+console.log('Answer "yes" if given number is prime. Otherwise answer "no".',);
 
 function generatePrimeQuestion() {
   const minimumRandomNumber = 1;
   const maximumRandomNumber = 100;
   const randomNumber = Math.floor(
-    Math.random() * (maximumRandomNumber - minimumRandomNumber) +
-      minimumRandomNumber
+    Math.random() * (maximumRandomNumber - minimumRandomNumber) + minimumRandomNumber,
   );
   return randomNumber;
 }
@@ -24,13 +23,13 @@ function getPrimeQuestionAndCorrectAnswer() {
       numberDivisorsWithoutRemainder += 1;
     }
   }
-  let numberIsSimple = "";
+  let numberIsSimple = '';
   if (numberDivisorsWithoutRemainder === 2) {
-    numberIsSimple = "yes";
+    numberIsSimple = 'yes';
   } else {
-    numberIsSimple = "no";
+    numberIsSimple = 'no';
   }
-  return [randomNumber, numberIsSimple];
+  return [randomNumber, numberIsSimple,];
 }
 
-runGame(getPrimeQuestionAndCorrectAnswer, userName);
+runGame(getPrimeQuestionAndCorrectAnswer, userName,);

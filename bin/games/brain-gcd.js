@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-import { runGame, welcomeUser } from "../../src/index.js";
+import { runGame, welcomeUser, } from '../../src/index.js';
 
 const userName = welcomeUser();
 
-console.log("Find the greatest common divisor of given numbers.");
+console.log('Find the greatest common divisor of given numbers.',);
 
 function generateGcdQuestion() {
   const minimumNumber = 1;
   const maximumNumber = 100;
   const randomFirstNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   const randomSecondNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   return `${randomFirstNumber} ${randomSecondNumber}`;
 }
 
 function getCorrectAnswerOnGcdQuestion() {
   const gcdQuestionString = generateGcdQuestion();
-  const gcdQuestionToArray = gcdQuestionString.split(" ");
-  const firstNumber = parseInt(gcdQuestionToArray[0], 10);
-  const secondNumber = parseInt(gcdQuestionToArray[1], 10);
+  const gcdQuestionToArray = gcdQuestionString.split(' ',);
+  const firstNumber = parseInt(gcdQuestionToArray[0], 10,);
+  const secondNumber = parseInt(gcdQuestionToArray[1], 10,);
   let smallestNumber = 0;
   let largestNumber = 0;
   let result = 0;
@@ -42,7 +42,7 @@ function getCorrectAnswerOnGcdQuestion() {
       }
     }
   }
-  return [gcdQuestionString, result.toString()];
+  return [gcdQuestionString, result.toString(),];
 }
 
-runGame(getCorrectAnswerOnGcdQuestion, userName);
+runGame(getCorrectAnswerOnGcdQuestion, userName,);
