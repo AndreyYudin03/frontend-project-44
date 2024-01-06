@@ -18,7 +18,7 @@ function generateGcdQuestion() {
   return `${randomFirstNumber} ${randomSecondNumber}`;
 }
 
-function getCorrectAnswerOnGcdQuestion() {
+function generateGcdQuestionWithCorrectAnswer() {
   const gcdQuestionString = generateGcdQuestion();
   const gcdQuestionToArray = gcdQuestionString.split(' ');
   const firstNumber = parseInt(gcdQuestionToArray[0], 10);
@@ -45,4 +45,4 @@ function getCorrectAnswerOnGcdQuestion() {
   return [gcdQuestionString, result.toString()];
 }
 
-runGame(getCorrectAnswerOnGcdQuestion, userName);
+runGame(generateGcdQuestionWithCorrectAnswer, userName);

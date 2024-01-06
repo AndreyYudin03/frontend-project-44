@@ -20,7 +20,7 @@ const generateCalculationQuestion = () => {
   return mathematicalQuestionToString;
 };
 
-const calculateResult = () => {
+const generateCalculationQuestionWithCorrectAnswer = () => {
   const calculationQuestionString = generateCalculationQuestion();
   const calculationQuestionStringToArray = calculationQuestionString.split(' ');
   const firstOperand = parseInt(calculationQuestionStringToArray[0], 10);
@@ -37,4 +37,4 @@ const calculateResult = () => {
   return [calculationQuestionString, result.toString()];
 };
 
-runGame(calculateResult, userName);
+runGame(generateCalculationQuestionWithCorrectAnswer, userName);

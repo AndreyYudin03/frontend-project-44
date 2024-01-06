@@ -14,7 +14,7 @@ const generateEvenQuestion = () => {
   return number;
 };
 
-const correctAnswerOnEvenQuestion = () => {
+const generateEvenQuestionWithCorrectAnswer = () => {
   const EvenQuestion = generateEvenQuestion();
   let correctAnswer = '';
   if (EvenQuestion % 2 === 0) {
@@ -25,4 +25,4 @@ const correctAnswerOnEvenQuestion = () => {
   return [EvenQuestion, correctAnswer];
 };
 
-runGame(correctAnswerOnEvenQuestion, userName);
+runGame(generateEvenQuestionWithCorrectAnswer, userName);

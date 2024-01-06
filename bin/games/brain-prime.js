@@ -7,15 +7,15 @@ const userName = welcomeUser();
 console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
 function generatePrimeQuestion() {
-  const minimumRandomNumber = 1;
-  const maximumRandomNumber = 100;
+  const minimumNumber = 1;
+  const maximumNumber = 100;
   const randomNumber = Math.floor(
-    Math.random() * (maximumRandomNumber - minimumRandomNumber) + minimumRandomNumber,
+    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
   );
   return randomNumber;
 }
 
-function getPrimeQuestionAndCorrectAnswer() {
+function generatePrimeQuestionWithCorrectAnswer() {
   const randomNumber = generatePrimeQuestion();
   let numberDivisorsWithoutRemainder = 0;
   for (let i = 0; i <= randomNumber; i += 1) {
@@ -32,4 +32,4 @@ function getPrimeQuestionAndCorrectAnswer() {
   return [randomNumber, numberIsSimple];
 }
 
-runGame(getPrimeQuestionAndCorrectAnswer, userName);
+runGame(generatePrimeQuestionWithCorrectAnswer, userName);
