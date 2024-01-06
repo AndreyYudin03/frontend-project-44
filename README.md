@@ -45,11 +45,13 @@ If the user gives an incorrect answer, the game will end and the player will kno
 
 Installation and startup instructions:
 
-1. Clone a project: "git clone https://github.com/AndreyYudin03/frontend-project-44.git "
+1. install Node.js (https://nodejs.org/en).
 
-2. In the directory with the cloned project, enter in the console: "npm install"
+2. Clone a project: "git clone https://github.com/AndreyYudin03/frontend-project-44.git "
 
-3. Launch one of the games by entering the short name of the game into the console:
+3. In the directory with the cloned project, enter in the console: "npm install"
+
+4. Launch one of the games by entering the short name of the game into the console:
 
 brain-even - Game: "Parity Check"
 
