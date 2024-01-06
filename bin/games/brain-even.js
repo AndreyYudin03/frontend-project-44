@@ -1,21 +1,12 @@
 #!/usr/bin/env node
-import { welcomeUser, runGame } from '../../src/index.js';
+import { welcomeUser, runGame, getRandomNumber } from '../../src/index.js';
 
 const userName = welcomeUser();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const generateEvenQuestion = () => {
-  const minimumNumber = 1;
-  const maximumNumber = 100;
-  const number = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
-  );
-  return number;
-};
-
 const generateEvenQuestionWithCorrectAnswer = () => {
-  const EvenQuestion = generateEvenQuestion();
+  const EvenQuestion = getRandomNumber();
   let correctAnswer = '';
   if (EvenQuestion % 2 === 0) {
     correctAnswer = 'yes';
