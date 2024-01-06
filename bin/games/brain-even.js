@@ -5,7 +5,7 @@ const userName = welcomeUser();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const generateEvenQuestionWithCorrectAnswer = () => {
+function generateEvenQuestionWithCorrectAnswer() {
   const EvenQuestion = getRandomNumber();
   let correctAnswer = '';
   if (EvenQuestion % 2 === 0) {
@@ -14,6 +14,6 @@ const generateEvenQuestionWithCorrectAnswer = () => {
     correctAnswer = 'no';
   }
   return [EvenQuestion, correctAnswer];
-};
+}
 
 runGame(generateEvenQuestionWithCorrectAnswer, userName);

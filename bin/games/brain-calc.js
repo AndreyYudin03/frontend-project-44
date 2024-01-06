@@ -5,7 +5,7 @@ const userName = welcomeUser();
 
 console.log('What is the result of the expression?');
 
-const generateCalculationQuestion = () => {
+function generateCalculationQuestion() {
   const operationsArray = ['+', '-', '*'];
   const minimumNumber = 1;
   const maximumNumber = 100;
@@ -18,9 +18,9 @@ const generateCalculationQuestion = () => {
   const randomOperator = operationsArray[Math.floor(Math.random() * operationsArray.length)];
   const mathematicalQuestionToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;
   return mathematicalQuestionToString;
-};
+}
 
-const generateCalculationQuestionWithCorrectAnswer = () => {
+function generateCalculationQuestionWithCorrectAnswer() {
   const calculationQuestionString = generateCalculationQuestion();
   const calculationQuestionStringToArray = calculationQuestionString.split(' ');
   const firstOperand = parseInt(calculationQuestionStringToArray[0], 10);
@@ -35,6 +35,6 @@ const generateCalculationQuestionWithCorrectAnswer = () => {
     result = firstOperand * secondOperand;
   }
   return [calculationQuestionString, result.toString()];
-};
+}
 
 runGame(generateCalculationQuestionWithCorrectAnswer, userName);

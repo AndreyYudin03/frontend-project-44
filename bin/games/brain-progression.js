@@ -1,19 +1,13 @@
 #!/usr/bin/env node
 
-import { welcomeUser, runGame } from '../../src/index.js';
+import { welcomeUser, runGame, getRandomNumber } from '../../src/index.js';
 
 const userName = welcomeUser();
 
 console.log('What number is missing in the progression?');
 
 function generateProgressionQuestionWithCorrectAnswer() {
-  const minimumProgressionFirstNumber = 1;
-  const maximumProgressionFirstNumber = 100;
-  const randomFirstNumber = Math.floor(
-    Math.random()
-      * (maximumProgressionFirstNumber - minimumProgressionFirstNumber)
-      + minimumProgressionFirstNumber,
-  );
+  const randomFirstNumber = getRandomNumber();
 
   const minimumProgressionLength = 5;
   const maximumProgressionLength = 10;

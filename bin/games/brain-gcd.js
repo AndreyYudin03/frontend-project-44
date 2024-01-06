@@ -1,20 +1,14 @@
 #!/usr/bin/env node
 
-import { runGame, welcomeUser } from '../../src/index.js';
+import { runGame, welcomeUser, getRandomNumber } from '../../src/index.js';
 
 const userName = welcomeUser();
 
 console.log('Find the greatest common divisor of given numbers.');
 
 function generateGcdQuestion() {
-  const minimumNumber = 1;
-  const maximumNumber = 100;
-  const randomFirstNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
-  );
-  const randomSecondNumber = Math.floor(
-    Math.random() * (maximumNumber - minimumNumber) + minimumNumber,
-  );
+  const randomFirstNumber = getRandomNumber();
+  const randomSecondNumber = getRandomNumber();
   return `${randomFirstNumber} ${randomSecondNumber}`;
 }
 
