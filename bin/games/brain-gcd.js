@@ -15,17 +15,17 @@ function generateGcdQuestion() {
 function generateGcdQuestionWithCorrectAnswer() {
   const gcdQuestionString = generateGcdQuestion();
   const gcdQuestionToArray = gcdQuestionString.split(' ');
-  const firstNumber = parseInt(gcdQuestionToArray[0], 10);
-  const secondNumber = parseInt(gcdQuestionToArray[1], 10);
+  const firstNumberGcdQuestion = parseInt(gcdQuestionToArray[0], 10);
+  const secondNumberGcdQuestion = parseInt(gcdQuestionToArray[1], 10);
   let smallestNumber = 0;
   let largestNumber = 0;
   let result = 0;
-  if (firstNumber <= secondNumber) {
-    smallestNumber = firstNumber;
-    largestNumber = secondNumber;
+  if (firstNumberGcdQuestion <= secondNumberGcdQuestion) {
+    smallestNumber = firstNumberGcdQuestion;
+    largestNumber = secondNumberGcdQuestion;
   } else {
-    smallestNumber = secondNumber;
-    largestNumber = firstNumber;
+    smallestNumber = secondNumberGcdQuestion;
+    largestNumber = firstNumberGcdQuestion;
   }
   if (largestNumber % smallestNumber === 0) {
     result = smallestNumber;
