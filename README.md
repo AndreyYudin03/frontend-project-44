@@ -62,3 +62,9 @@ brain-gcd - Game "NODE"
 brain-progression - Game "Arithmetic progression"
 
 brain-prime - The game "Is a prime number?"
+
+Minimum requirements:
+
+OS: Windows, macOS or Linux.
+
+Node.js is not lower than v19.9.0
