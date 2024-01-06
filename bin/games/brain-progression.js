@@ -9,8 +9,7 @@ console.log('What number is missing in the progression?');
 function generateProgressionQuestion() {
   const randomFirstNumber = getRandomNumber();
 
-  const minimumProgressionLength = 5;
-  const maximumProgressionLength = 10;
+  const [minimumProgressionLength, maximumProgressionLength] = [5, 10];
   const randomProgressionLength = Math.floor(
     Math.random() * (maximumProgressionLength - minimumProgressionLength)
       + minimumProgressionLength,
@@ -18,7 +17,7 @@ function generateProgressionQuestion() {
 
   const progressionArray = [];
   progressionArray.push(randomFirstNumber);
-  const randomStepProgressionNumber = Math.floor(Math.random() * (100 - 1) + 1);
+  const randomStepProgressionNumber = getRandomNumber();
   let lastElementProgressionArray = progressionArray[progressionArray.length - 1];
 
   for (let i = 0; i < 4; i += 1) {
