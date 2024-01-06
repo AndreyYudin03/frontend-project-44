@@ -2,6 +2,9 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=19.9.0"
+  },
   "description": "[![Actions Status](https://github.com/AndreyYudin03/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AndreyYudin03/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
