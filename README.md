@@ -50,8 +50,13 @@ Installation and startup instructions:
 2. In the directory with the cloned project, enter in the console: "npm install"
 
 3. Launch one of the games by entering the short name of the game into the console:
+
 brain-even - Game: "Parity Check"
+
 brain-calc - Game: "Calculator"
+
 brain-gcd - Game "NODE"
+
 brain-progression - Game "Arithmetic progression"
+
 brain-prime - The game "Is a prime number?"
