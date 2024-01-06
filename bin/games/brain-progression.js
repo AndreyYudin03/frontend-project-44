@@ -6,7 +6,7 @@ const userName = welcomeUser();
 
 console.log('What number is missing in the progression?');
 
-function generateProgressionQuestionWithCorrectAnswer() {
+function generateProgressionQuestion() {
   const randomFirstNumber = getRandomNumber();
 
   const minimumProgressionLength = 5;
@@ -38,7 +38,10 @@ function generateProgressionQuestionWithCorrectAnswer() {
       lastElementProgressionArray + randomStepProgressionNumber,
     );
   }
-
+  return progressionArray;
+}
+function generateProgressionQuestionWithCorrectAnswer() {
+  const progressionArray = generateProgressionQuestion();
   const randomProgressionArrayIndex = Math.floor(
     Math.random() * (progressionArray.length - 0) + 0,
   );
