@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { runGame, welcomeUser } from '../../src/index.js';
+import { runGame, welcomeUser } from '../../bin/index.js';
 
 const userName = welcomeUser();
 

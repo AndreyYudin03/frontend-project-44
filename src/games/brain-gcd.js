@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { runGame, welcomeUser, getRandomNumber } from '../../src/index.js';
+import { runGame, welcomeUser, getRandomNumber } from '../../bin/index.js';
 
 const userName = welcomeUser();
 
