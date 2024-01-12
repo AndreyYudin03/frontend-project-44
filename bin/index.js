@@ -17,7 +17,8 @@ function runGame(questionWithAnswer) {
       console.log(
         `'${userAnswer}' is wrong answer. Correct answer was '${answer}'.`,
       );
-      return console.log(`Let's try again, ${userName}!`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
   }
   console.log(`Congratulations, ${userName}!`);
