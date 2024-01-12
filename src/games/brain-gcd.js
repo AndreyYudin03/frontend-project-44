@@ -1,31 +1,26 @@
 #!/usr/bin/env node
 
-import { runGame, welcomeUser, getRandomNumber } from '../../bin/index.js';
-
-const userName = welcomeUser();
+import runGame from '../../bin/index.js';
+import getRandomNumber from '../utils.js';
 
 console.log('Find the greatest common divisor of given numbers.');
 
 function generateGcdQuestion() {
   const randomFirstNumber = getRandomNumber();
   const randomSecondNumber = getRandomNumber();
-  return `${randomFirstNumber} ${randomSecondNumber}`;
+  return [randomFirstNumber, randomSecondNumber];
 }
 
-function generateGcdQuestionWithCorrectAnswer() {
-  const gcdQuestionString = generateGcdQuestion();
-  const gcdQuestionToArray = gcdQuestionString.split(' ');
-  const firstNumberGcdQuestion = parseInt(gcdQuestionToArray[0], 10);
-  const secondNumberGcdQuestion = parseInt(gcdQuestionToArray[1], 10);
+function getGcdAnswer([firstNumber, secondNumber]) {
   let smallestNumber = 0;
   let largestNumber = 0;
   let result = 0;
-  if (firstNumberGcdQuestion <= secondNumberGcdQuestion) {
-    smallestNumber = firstNumberGcdQuestion;
-    largestNumber = secondNumberGcdQuestion;
+  if (firstNumber <= secondNumber) {
+    smallestNumber = firstNumber;
+    largestNumber = secondNumber;
   } else {
-    smallestNumber = secondNumberGcdQuestion;
-    largestNumber = firstNumberGcdQuestion;
+    smallestNumber = secondNumber;
+    largestNumber = firstNumber;
   }
   if (largestNumber % smallestNumber === 0) {
     result = smallestNumber;
@@ -36,7 +31,14 @@ function generateGcdQuestionWithCorrectAnswer() {
       }
     }
   }
-  return [gcdQuestionString, result.toString()];
+  return result.toString();
 }
 
-runGame(generateGcdQuestionWithCorrectAnswer, userName);
+function generateGcdQuestionWithCorrectAnswer() {
+  const [firstNumber, secondNumber] = generateGcdQuestion();
+  const gcdQuestionArrayToString = `${firstNumber} ${secondNumber}`;
+  const gcdAnswer = getGcdAnswer([firstNumber, secondNumber]);
+  return [gcdQuestionArrayToString, gcdAnswer];
+}
+
+runGame(generateGcdQuestionWithCorrectAnswer);

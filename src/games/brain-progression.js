@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-import { welcomeUser, runGame, getRandomNumber } from '../../bin/index.js';
-
-const userName = welcomeUser();
+import runGame from '../../bin/index.js';
+import getRandomNumber from '../utils.js';
 
 console.log('What number is missing in the progression?');
 
-function generateProgressionQuestion() {
+function generateArithmeticProgression() {
   const randomFirstNumber = getRandomNumber();
 
   const [minimumProgressionLength, maximumProgressionLength] = [4, 10];
@@ -30,19 +29,33 @@ function generateProgressionQuestion() {
   return progressionArray;
 }
 
-function generateProgressionQuestionWithCorrectAnswer() {
-  const progressionArray = generateProgressionQuestion();
+function getHiddenNumber(progressionArray) {
   const randomProgressionArrayIndex = Math.floor(
     Math.random() * (progressionArray.length - 0) + 0,
   );
 
   const hiddenNumber = progressionArray[randomProgressionArrayIndex];
-
-  progressionArray[randomProgressionArrayIndex] = '..';
-  return [
-    progressionArray.toString().replace(/,/g, ' '),
-    hiddenNumber.toString(),
-  ];
+  return hiddenNumber;
 }
 
-runGame(generateProgressionQuestionWithCorrectAnswer, userName);
+function getProgressionArrayWithHiddenNumberQuestion(
+  hiddenNumber,
+  progressionArray,
+) {
+  const progressionArrayCopy = progressionArray;
+  const indexOfHiddenNumber = progressionArrayCopy.indexOf(hiddenNumber);
+  progressionArrayCopy[indexOfHiddenNumber] = '..';
+  return progressionArrayCopy.toString().replace(/,/g, ' ');
+}
+
+function generateProgressionQuestionWithCorrectAnswer() {
+  const arithmeticProgression = generateArithmeticProgression();
+  const hiddenNumber = getHiddenNumber(arithmeticProgression);
+  const arithmeticProgressionQuestion = getProgressionArrayWithHiddenNumberQuestion(
+    hiddenNumber,
+    arithmeticProgression,
+  );
+  return [arithmeticProgressionQuestion, hiddenNumber.toString()];
+}
+
+runGame(generateProgressionQuestionWithCorrectAnswer);
