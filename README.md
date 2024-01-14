@@ -85,6 +85,6 @@ brain-prime
 
 ## Minimum requirements:
 
-OS: Windows, macOS or Linux.
+- OS: Windows, macOS or Linux.
 
-Node.js is not lower than v19.9.0
+- Node.js is not lower than v19.9.0
