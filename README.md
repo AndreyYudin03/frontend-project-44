@@ -42,7 +42,7 @@ At the beginning of each game, you will be greeted and asked your name. The numb
 
 ## Installation and startup instructions:
 
-1. install Node.js (https://nodejs.org/en).
+1. [Install Node.js](https://nodejs.org/en)
 
 2. Clone a project:
 
