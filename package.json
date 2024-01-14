@@ -24,11 +24,11 @@
     "make": "^0.8.1"
   },
   "bin": {
-    "brain-games": "src/games/brain-games.js",
-    "brain-even": "src/games/brain-even.js",
-    "brain-calc": "src/games/brain-calc.js",
-    "brain-gcd": "src/games/brain-gcd.js",
-    "brain-progression": "src/games/brain-progression.js",
-    "brain-prime": "src/games/brain-prime.js"
+    "brain-games": "bin/brain-games_start.js",
+    "brain-even": "bin/brain-even_start.js",
+    "brain-calc": "bin/brain-calc_start.js",
+    "brain-gcd": "bin/brain-gcd_start.js",
+    "brain-progression": "bin/brain-progression_start.js",
+    "brain-prime": "bin/brain-prime_start.js"
   }
 }

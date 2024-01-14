@@ -1,14 +1,4 @@
-#!/usr/bin/env node
-
-import runGame from '../../bin/index.js';
 import getRandomNumber from '../utils.js';
-
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
-function generatePrimeQuestion() {
-  const randomNumber = getRandomNumber();
-  return randomNumber;
-}
 
 function getPrimeAnswer(randomNumber) {
   let numberDivisorsWithoutRemainder = 0;
@@ -27,9 +17,9 @@ function getPrimeAnswer(randomNumber) {
 }
 
 function generatePrimeQuestionWithCorrectAnswer() {
-  const primeQuestion = generatePrimeQuestion();
+  const primeQuestion = getRandomNumber();
   const primeAnswer = getPrimeAnswer(primeQuestion);
   return [primeQuestion, primeAnswer];
 }
 
-runGame(generatePrimeQuestionWithCorrectAnswer);
+export default generatePrimeQuestionWithCorrectAnswer;

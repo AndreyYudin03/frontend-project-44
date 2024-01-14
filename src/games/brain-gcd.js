@@ -1,15 +1,4 @@
-#!/usr/bin/env node
-
-import runGame from '../../bin/index.js';
 import getRandomNumber from '../utils.js';
-
-console.log('Find the greatest common divisor of given numbers.');
-
-function generateGcdQuestion() {
-  const randomFirstNumber = getRandomNumber();
-  const randomSecondNumber = getRandomNumber();
-  return [randomFirstNumber, randomSecondNumber];
-}
 
 function getGcdAnswer([firstNumber, secondNumber]) {
   let smallestNumber = 0;
@@ -35,10 +24,11 @@ function getGcdAnswer([firstNumber, secondNumber]) {
 }
 
 function generateGcdQuestionWithCorrectAnswer() {
-  const [firstNumber, secondNumber] = generateGcdQuestion();
-  const gcdQuestionArrayToString = `${firstNumber} ${secondNumber}`;
-  const gcdAnswer = getGcdAnswer([firstNumber, secondNumber]);
+  const randomFirstNumber = getRandomNumber();
+  const randomSecondNumber = getRandomNumber();
+  const gcdQuestionArrayToString = `${randomFirstNumber} ${randomSecondNumber}`;
+  const gcdAnswer = getGcdAnswer([randomFirstNumber, randomSecondNumber]);
   return [gcdQuestionArrayToString, gcdAnswer];
 }
 
-runGame(generateGcdQuestionWithCorrectAnswer);
+export default generateGcdQuestionWithCorrectAnswer;
