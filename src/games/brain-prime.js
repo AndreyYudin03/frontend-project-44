@@ -1,25 +1,19 @@
 import getRandomNumber from '../utils.js';
 
-function getPrimeAnswer(randomNumber) {
+const isPrime = (number) => {
   let numberDivisorsWithoutRemainder = 0;
-  for (let i = 0; i <= randomNumber; i += 1) {
-    if (randomNumber % i === 0) {
+  for (let i = 0; i <= number; i += 1) {
+    if (number % i === 0) {
       numberDivisorsWithoutRemainder += 1;
     }
   }
-  let numberIsSimple = '';
-  if (numberDivisorsWithoutRemainder === 2) {
-    numberIsSimple = 'yes';
-  } else {
-    numberIsSimple = 'no';
-  }
-  return numberIsSimple;
-}
+  return numberDivisorsWithoutRemainder === 2 ? 'yes' : 'no';
+};
 
-function generatePrimeQuestionWithCorrectAnswer() {
+const generatePrimeQuestionWithCorrectAnswer = () => {
   const primeQuestion = getRandomNumber();
-  const primeAnswer = getPrimeAnswer(primeQuestion);
+  const primeAnswer = isPrime(primeQuestion);
   return [primeQuestion, primeAnswer];
-}
+};
 
 export default generatePrimeQuestionWithCorrectAnswer;

@@ -1,36 +1,31 @@
 import getRandomNumber from '../utils.js';
 
-function calculateResult([firstOperand, secondOperand, operator]) {
-  let result = 0;
+const calculateResult = (firstOperand, secondOperand, operator) => {
   switch (operator) {
     case '+':
-      result = firstOperand + secondOperand;
-      break;
+      return firstOperand + secondOperand;
     case '-':
-      result = firstOperand - secondOperand;
-      break;
+      return firstOperand - secondOperand;
     case '*':
-      result = firstOperand * secondOperand;
-      break;
+      return firstOperand * secondOperand;
     default:
       throw new Error(`Unknown operator state: '${operator}'`);
   }
-  return result.toString();
-}
+};
 
-function generateCalculationQuestionWithCorrectAnswer() {
-  const operationsArray = ['+', '-', '*'];
-  const randomFirstOperand = getRandomNumber();
-  const randomSecondOperand = getRandomNumber();
-  const randomOperator = operationsArray[Math.floor(Math.random() * operationsArray.length)];
-  const calculationQuestionArrayToString = `${randomFirstOperand} ${randomOperator} ${randomSecondOperand}`;
-  const calculationAnswer = calculateResult([
-    randomFirstOperand,
-    randomSecondOperand,
-    randomOperator,
-  ]);
+const generateCalculationQuestionWithCorrectAnswer = () => {
+  const operators = ['+', '-', '*'];
+  const firstOperand = getRandomNumber();
+  const secondOperand = getRandomNumber();
+  const operator = operators[getRandomNumber(0, 3)];
+  const calculationQuestion = `${firstOperand} ${operator} ${secondOperand}`;
+  const calculationAnswer = calculateResult(
+    firstOperand,
+    secondOperand,
+    operator,
+  ).toString();
 
-  return [calculationQuestionArrayToString, calculationAnswer];
-}
+  return [calculationQuestion, calculationAnswer];
+};
 
 export default generateCalculationQuestionWithCorrectAnswer;

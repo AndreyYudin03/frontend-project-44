@@ -1,16 +1,11 @@
-import getRandomNumber from '../utils.js';
+import getRandomNumber from "../utils.js";
 
-function getGcdAnswer([firstNumber, secondNumber]) {
-  let smallestNumber = 0;
-  let largestNumber = 0;
+const getGcdAnswer = (firstNumber, secondNumber) => {
+  const [smallestNumber, largestNumber] = [
+    Math.min(firstNumber, secondNumber),
+    Math.max(firstNumber, secondNumber),
+  ];
   let result = 0;
-  if (firstNumber <= secondNumber) {
-    smallestNumber = firstNumber;
-    largestNumber = secondNumber;
-  } else {
-    smallestNumber = secondNumber;
-    largestNumber = firstNumber;
-  }
   if (largestNumber % smallestNumber === 0) {
     result = smallestNumber;
   } else {
@@ -20,15 +15,15 @@ function getGcdAnswer([firstNumber, secondNumber]) {
       }
     }
   }
-  return result.toString();
-}
+  return result;
+};
 
-function generateGcdQuestionWithCorrectAnswer() {
-  const randomFirstNumber = getRandomNumber();
-  const randomSecondNumber = getRandomNumber();
-  const gcdQuestionArrayToString = `${randomFirstNumber} ${randomSecondNumber}`;
-  const gcdAnswer = getGcdAnswer([randomFirstNumber, randomSecondNumber]);
-  return [gcdQuestionArrayToString, gcdAnswer];
-}
+const generateGcdQuestionWithCorrectAnswer = () => {
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
+  const gcdQuestion = `${firstNumber} ${secondNumber}`;
+  const gcdAnswer = getGcdAnswer(firstNumber, secondNumber).toString();
+  return [gcdQuestion, gcdAnswer];
+};
 
 export default generateGcdQuestionWithCorrectAnswer;

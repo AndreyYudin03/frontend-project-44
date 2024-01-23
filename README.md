@@ -47,7 +47,7 @@ At the beginning of each game, you will be greeted and asked your name. The numb
 2. Clone a project:
 
 ```
-git clone https://github.com/AndreyYudin03/frontend-project-44.git "
+git clone https://github.com/AndreyYudin03/frontend-project-44.git
 ```
 
 3. In the directory with the cloned project, enter in the console:

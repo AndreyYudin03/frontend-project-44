@@ -1,43 +1,36 @@
 import getRandomNumber from '../utils.js';
 
-function getHiddenNumber(progressionArray) {
-  const randomProgressionArrayIndex = Math.floor(
+const getHiddenNumber = (progressionArray) => {
+  const progressionIndex = Math.floor(
     Math.random() * (progressionArray.length - 0) + 0,
   );
 
-  const hiddenNumber = progressionArray[randomProgressionArrayIndex];
-  return hiddenNumber;
-}
+  return progressionArray[progressionIndex];
+};
 
-function getProgressionArrayWithHiddenNumberQuestion(
+const getProgressionArrayWithHiddenNumberQuestion = (
   hiddenNumber,
   progressionArray,
-) {
-  const progressionArrayCopy = progressionArray;
-  const indexOfHiddenNumber = progressionArrayCopy.indexOf(hiddenNumber);
-  progressionArrayCopy[indexOfHiddenNumber] = '..';
-  return progressionArrayCopy.toString().replace(/,/g, ' ');
-}
+) => {
+  const progressionCopy = Array.from(progressionArray);
+  const indexOfHiddenNumber = progressionCopy.indexOf(hiddenNumber);
+  progressionCopy[indexOfHiddenNumber] = '..';
+  return progressionCopy.toString().replace(/,/g, ' ');
+};
 
-function generateProgressionQuestionWithCorrectAnswer() {
-  const randomFirstNumber = getRandomNumber();
+const generateProgressionQuestionWithCorrectAnswer = () => {
+  const firstNumber = getRandomNumber();
 
-  const [minimumProgressionLength, maximumProgressionLength] = [4, 10];
-  const randomProgressionLength = Math.floor(
-    Math.random() * (maximumProgressionLength - minimumProgressionLength)
-      + minimumProgressionLength,
-  );
+  const progressionLength = getRandomNumber(4, 10);
 
   const progressionArray = [];
-  progressionArray.push(randomFirstNumber);
-  const randomStepProgressionNumber = getRandomNumber();
+  progressionArray.push(firstNumber);
+  const stepProgression = getRandomNumber();
   let lastElementProgressionArray = progressionArray[progressionArray.length - 1];
 
-  for (let i = 0; i < randomProgressionLength; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     lastElementProgressionArray = progressionArray[progressionArray.length - 1];
-    progressionArray.push(
-      lastElementProgressionArray + randomStepProgressionNumber,
-    );
+    progressionArray.push(lastElementProgressionArray + stepProgression);
   }
 
   const hiddenNumber = getHiddenNumber(progressionArray);
@@ -46,6 +39,6 @@ function generateProgressionQuestionWithCorrectAnswer() {
     progressionArray,
   );
   return [progressionQuestion, hiddenNumber.toString()];
-}
+};
 
 export default generateProgressionQuestionWithCorrectAnswer;
