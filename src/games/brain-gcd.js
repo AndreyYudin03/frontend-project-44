@@ -1,4 +1,4 @@
-import getRandomNumber from "../utils.js";
+import getRandomNumber from '../utils.js';
 
 const getGcdAnswer = (firstNumber, secondNumber) => {
   const [smallestNumber, largestNumber] = [
