@@ -1,18 +1,15 @@
 import getRandomNumber from '../utils.js';
 
-const getHiddenNumber = (progressionArray) => {
+const getHiddenNumber = (progression) => {
   const progressionIndex = Math.floor(
-    Math.random() * (progressionArray.length - 0) + 0,
+    Math.random() * (progression.length - 0) + 0,
   );
 
-  return progressionArray[progressionIndex];
+  return progression[progressionIndex];
 };
 
-const getProgressionArrayWithHiddenNumberQuestion = (
-  hiddenNumber,
-  progressionArray,
-) => {
-  const progressionCopy = Array.from(progressionArray);
+const getProgressionWithHiddenNumberQuestion = (hiddenNumber, progression) => {
+  const progressionCopy = Array.from(progression);
   const indexOfHiddenNumber = progressionCopy.indexOf(hiddenNumber);
   progressionCopy[indexOfHiddenNumber] = '..';
   return progressionCopy.toString().replace(/,/g, ' ');
@@ -23,20 +20,20 @@ const generateProgressionQuestionWithCorrectAnswer = () => {
 
   const progressionLength = getRandomNumber(4, 10);
 
-  const progressionArray = [];
-  progressionArray.push(firstNumber);
+  const progression = [];
+  progression.push(firstNumber);
   const stepProgression = getRandomNumber();
-  let lastElementProgressionArray = progressionArray[progressionArray.length - 1];
+  let lastElementProgressionArray = progression[progression.length - 1];
 
   for (let i = 0; i < progressionLength; i += 1) {
-    lastElementProgressionArray = progressionArray[progressionArray.length - 1];
-    progressionArray.push(lastElementProgressionArray + stepProgression);
+    lastElementProgressionArray = progression[progression.length - 1];
+    progression.push(lastElementProgressionArray + stepProgression);
   }
 
-  const hiddenNumber = getHiddenNumber(progressionArray);
-  const progressionQuestion = getProgressionArrayWithHiddenNumberQuestion(
+  const hiddenNumber = getHiddenNumber(progression);
+  const progressionQuestion = getProgressionWithHiddenNumberQuestion(
     hiddenNumber,
-    progressionArray,
+    progression,
   );
   return [progressionQuestion, hiddenNumber.toString()];
 };
