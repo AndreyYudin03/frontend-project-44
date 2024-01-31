@@ -1,5 +1,7 @@
 import getRandomNumber from '../utils.js';
 
+const operators = ['+', '-', '*'];
+
 const calculateResult = (firstOperand, secondOperand, operator) => {
   switch (operator) {
     case '+':
@@ -14,10 +16,9 @@ const calculateResult = (firstOperand, secondOperand, operator) => {
 };
 
 const generateCalculationQuestionWithCorrectAnswer = () => {
-  const operators = ['+', '-', '*'];
   const firstOperand = getRandomNumber();
   const secondOperand = getRandomNumber();
-  const operator = operators[getRandomNumber(0, 3)];
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
   const calculationQuestion = `${firstOperand} ${operator} ${secondOperand}`;
   const calculationAnswer = calculateResult(
     firstOperand,

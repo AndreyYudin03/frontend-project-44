@@ -1,41 +1,37 @@
 import getRandomNumber from '../utils.js';
 
-const getHiddenNumber = (progression) => {
-  const progressionIndex = Math.floor(
-    Math.random() * (progression.length - 0) + 0,
+const getProgressionWithHiddenNumberQuestion = (progression) => {
+  const progressionCopy = Array.from(progression);
+  const indexOfHiddenNumber = Math.floor(
+    Math.random() * (progressionCopy.length - 0) + 0,
   );
-
-  return progression[progressionIndex];
+  const hiddenNumber = progressionCopy[indexOfHiddenNumber];
+  progressionCopy[indexOfHiddenNumber] = '..';
+  return [progressionCopy.toString().replace(/,/g, ' '), hiddenNumber];
 };
 
-const getProgressionWithHiddenNumberQuestion = (hiddenNumber, progression) => {
-  const progressionCopy = Array.from(progression);
-  const indexOfHiddenNumber = progressionCopy.indexOf(hiddenNumber);
-  progressionCopy[indexOfHiddenNumber] = '..';
-  return progressionCopy.toString().replace(/,/g, ' ');
+const generateProgression = (step, numberOfElements) => {
+  const progression = [];
+
+  for (let i = 1; i <= numberOfElements; i += 1) {
+    progression.push(step * i);
+  }
+
+  return progression;
 };
 
 const generateProgressionQuestionWithCorrectAnswer = () => {
-  const firstNumber = getRandomNumber();
-
-  const progressionLength = getRandomNumber(4, 10);
-
-  const progression = [];
-  progression.push(firstNumber);
-  const stepProgression = getRandomNumber();
-  let lastElementProgressionArray = progression[progression.length - 1];
-
-  for (let i = 0; i < progressionLength; i += 1) {
-    lastElementProgressionArray = progression[progression.length - 1];
-    progression.push(lastElementProgressionArray + stepProgression);
-  }
-
-  const hiddenNumber = getHiddenNumber(progression);
-  const progressionQuestion = getProgressionWithHiddenNumberQuestion(
-    hiddenNumber,
-    progression,
+  const progression = generateProgression(
+    getRandomNumber(),
+    getRandomNumber(5, 10),
   );
-  return [progressionQuestion, hiddenNumber.toString()];
+
+  const progressionQuestionWithHiddenNumber = getProgressionWithHiddenNumberQuestion(progression);
+
+  return [
+    progressionQuestionWithHiddenNumber[0],
+    progressionQuestionWithHiddenNumber[1].toString(),
+  ];
 };
 
 export default generateProgressionQuestionWithCorrectAnswer;

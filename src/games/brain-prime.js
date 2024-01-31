@@ -7,12 +7,12 @@ const isPrime = (number) => {
       numberDivisorsWithoutRemainder += 1;
     }
   }
-  return numberDivisorsWithoutRemainder === 2 ? 'yes' : 'no';
+  return numberDivisorsWithoutRemainder === 2;
 };
 
 const generatePrimeQuestionWithCorrectAnswer = () => {
   const primeQuestion = getRandomNumber();
-  const primeAnswer = isPrime(primeQuestion);
+  const primeAnswer = isPrime(primeQuestion) ? 'yes' : 'no';
   return [primeQuestion, primeAnswer];
 };
 
