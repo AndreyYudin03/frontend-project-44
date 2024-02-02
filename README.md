@@ -2,6 +2,8 @@
 
 [![Actions Status](https://github.com/AndreyYudin03/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AndreyYudin03/frontend-project-44/actions)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/cece010d6fd865af2811/maintainability)](https://codeclimate.com/github/AndreyYudin03/frontend-project-44/maintainability)
+
 # This project consists of 5 console math games.
 
 ## "Parity Check" (brain-even):
