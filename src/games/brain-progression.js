@@ -1,20 +1,10 @@
 import getRandomNumber from '../utils.js';
 
-const getProgressionWithHiddenNumberQuestion = (progression) => {
-  const progressionCopy = Array.from(progression);
-  const indexOfHiddenNumber = Math.floor(
-    Math.random() * (progressionCopy.length - 0) + 0,
-  );
-  const hiddenNumber = progressionCopy[indexOfHiddenNumber];
-  progressionCopy[indexOfHiddenNumber] = '..';
-  return [progressionCopy.toString().replace(/,/g, ' '), hiddenNumber];
-};
+const generateProgression = (firstNumber, step, numberOfElements) => {
+  const progression = [firstNumber];
 
-const generateProgression = (step, numberOfElements) => {
-  const progression = [];
-
-  for (let i = 1; i <= numberOfElements; i += 1) {
-    progression.push(step * i);
+  for (let i = 1; i < numberOfElements; i += 1) {
+    progression[i] = progression[i - 1] + step;
   }
 
   return progression;
@@ -23,15 +13,20 @@ const generateProgression = (step, numberOfElements) => {
 const generateProgressionQuestionWithCorrectAnswer = () => {
   const progression = generateProgression(
     getRandomNumber(),
+    getRandomNumber(),
     getRandomNumber(5, 10),
   );
 
-  const progressionQuestionWithHiddenNumber = getProgressionWithHiddenNumberQuestion(progression);
+  const indexOfHiddenNumber = getRandomNumber(0, progression.length - 1);
+  const hiddenNumber = progression[indexOfHiddenNumber];
+  progression[indexOfHiddenNumber] = '..';
 
-  return [
-    progressionQuestionWithHiddenNumber[0],
-    progressionQuestionWithHiddenNumber[1].toString(),
+  const [progressionQuestion, progressionAnswer] = [
+    progression.toString().replace(/,/g, ' '),
+    hiddenNumber.toString(),
   ];
+
+  return [progressionQuestion, progressionAnswer];
 };
 
 export default generateProgressionQuestionWithCorrectAnswer;
